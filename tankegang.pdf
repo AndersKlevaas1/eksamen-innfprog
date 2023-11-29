@@ -1,0 +1,26 @@
+# Tankegang
+
+memoryBank
+
+1. Lagre elementene som skal tastes inn i en array
+2. Lage en funksjon, slik at noe skjer.
+funksjonen må kunne hente tallene som ligger i calculation
+funksjonen må kunne sende det tallet ut igjen, og ikke bare hente tallene
+Funksjonen må oppdatere tallet over memoryknappen i parantes, så jeg må sende tallet dit og oppdatere den verdien.
+
+Jeg trenger en funksjon til. 
+En funksjon som oppdaterer minnet, og viser fram tallet som har blit oppdatert.
+ettersom at id-en memory-bank inneholder en bindestrek, må jeg lage en funksjon som henter informasjonen i den id-en og sender den inn i arrayen
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Previous knappen
+
+1. Når memoryknappen trykkes, lagres tallet i en array. her vil jeg kunne hente ut verdien når jeg vil
+2. jeg kommer til å trenge en variabel som viser hvilken verdi som er "husket" akkurat nå, slik at det ikke blandes med eventuelle gamle/nye
+3. Når en ny verdi lagres, må jeg oppdatere den forrige verdien, men den nye, så da trenger jeg en funksjon som oppdaterer denne.
+4. Previous knappen skal brukes til å hente det forrige elementet i arrayen, kommer jeg til å trenge en loop for å hente denne
+5. Jeg må endre verdien i calculation for å kunne vise det elementet på skjermen, så jeg vil måtte endre den verdien, og hente den ut igjen.
+6. Til slutt må jeg sende denne informasjonen til memoryBank for å vise memory-verdien på skjermen.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
