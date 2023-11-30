@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eksamen oppgave 1: Kalkulator</title>
+    <link rel="stylesheet" href="font/stylesheet.css">
+    <link rel="stylesheet" href="oppgave1style.css">
+</head>
+<body>
+    <article>
+        <input type="text" id="calculation" />
+        <div id="keyboard">
+            <div id="numbers">
+                <button id="number-1" value="1" onClick="display('1')">1</button>
+                <button id="number-2" value="2" onClick="display('2')">2</button>
+                <button id="number-3" value="3" onClick="display('3')">3</button>
+                <button id="number-4" value="4" onClick="display('4')">4</button>
+                <button id="number-5" value="5" onClick="display('5')">5</button>
+                <button id="number-6" value="6" onClick="display('6')">6</button>
+                <button id="number-7" value="7" onClick="display('7')">7</button>
+                <button id="number-8" value="8" onClick="display('8')">8</button>
+                <button id="number-9" value="9" onClick="display('9')">9</button>
+                <button id="number-comma" value="." onClick="display(',')">,</button>
+                <button id="number-0" value="0" onClick="display('0')">0</button>
+                <button id="control-clear" onClick="clearScreen()">C</button>
+                
+            </div>
+            <div id="controls">
+                <button id="control-plus" value="+" onClick="display('+')">+</button>
+                <button id="control-minus" value="-" onClick="display('-')">-</button>
+                <button id="control-multiply" value="*" onClick="display('*')">*</button>
+                <button id="control-multiply" value="/" onClick="display('/')">/</button>
+                <button id="control-equal" value="=" onClick="solve()">=</button>
+            </div>
+        </div>
+        <div id="memory">
+            <p>Memory (<span id="memory-bank">0</span>)</p>
+            <button id="memory-add" onclick="addMemory()">Add</button>
+            <button id="memory-browseback" onclick="previousMemory()">Previous</button>
+            <button id="memory-browseforward" disabled>Next</button>
+        </div>
+    </article>
+
+    <script>
+        function display(val) {
+            // Endret displey til Display
+            document.getElementById("calculation").value += val
+            //Endret calculatin til calculation
+            //Endret getElementByID til getElementById
+            return val
+        }
+
+        function solve() {
+            let calculation = document.getElementById("calculation").value
+            //Fjernet () bak Value
+            let result = eval(calculation)
+            document.getElementById("calculation").value = result
+            // Endret results til result
+            return result
+        }
+
+        // let calculation = document.getElementById("calculation").value --
+        // Denne linjen henter verdien fra feltet som heter "Calculation" og beholder informasjonen i "calculation" variabelen.
+
+        // let result = eval(calculation) --
+        // eval-funskjonen bruker vi her for å regne ut svaret som har blitt tastet inn tidligere, hvis  det har blitt tastet inn 1+3, vil eval
+        //regne ut 1+3=4 og lagre det i result variabelen
+
+        //document.getElementById("calculation").value = result --
+        // Her bruker vi document.getElementById for å oppdatere koden med verdien fra calculation, og skriver ut det endelige svaret
+        
+
+        // return result --
+        // til slutt bruker vi return, som skal skrive tilbake svaret, som vi da kan bruke når vi skal lage memoryfunksjonen,
+        // med return result kan vi sende den verdien som skal inn i memory når den knappen skal brukes.
+
+
+        // Lage memory funksjon
+
+        let memoryBank = []
+        let currentMemoryValue = -1 // Må settes til -1 fordi en verdi ikke er valgt enda
+
+        function addMemory() {
+            let memoryValue = document.getElementById("calculation").value
+            memoryBank.push(memoryValue)
+            // https://www.w3schools.com/jsref/jsref_push.asp push-element 
+            updateMemoryButton()
+            console.log(memoryBank + " Ble lagret i memoryBank")
+        }
+
+        function updateMemoryButton() {
+            let memoryBankElement = document.getElementById("memory-bank")
+            memoryBankElement.textContent = memoryBank.length
+            //https://www.w3schools.com/jsref/jsref_length_string.asp length elementet
+        }
+
+        // Previous-memory knapp
+        
+        function previousMemory() {
+            console.log("Memory Value:", memoryValue);
+            if (currentMemoryValue >= 0) {
+                let memoryValue = memoryBank[currentMemoryValue]
+                document.getElementById("calculation").value = memoryValue
+                currentMemoryValue--
+                updateMemoryButton()
+                updateMemoryDisplay()
+                memoryButtonUpdate()
+            }
+            
+        }
+
+        function updateMemoryDisplay() {
+            let memoryBankElement = document.getElementById("memory-bank")
+            memoryBankElement.textContent = memoryBank.length
+        }
+
+        function memoryButtonUpdate() {
+            let buttonBack = document.getElementById("memory-browseback")
+            buttonBack.disabled = currentMemoryValue <= 0
+        }
+        
+        function clearScreen() {
+            document.getElementById("calculation").value = ""
+        }
+    </script>
+</body>
+</html>
