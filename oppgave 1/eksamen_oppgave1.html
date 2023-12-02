@@ -96,7 +96,7 @@
 
         function updateMemoryButton() {
             let memoryBankElement = document.getElementById("memory-bank")
-            memoryBankElement.textContent = memoryBank.length
+            memoryBankElement.innerHTML = memoryBank.length
             //https://www.w3schools.com/jsref/jsref_length_string.asp length elementet
         }
 
@@ -120,7 +120,7 @@
 
         function updateMemoryDisplay() {
             let memoryBankElement = document.getElementById("memory-bank")
-            memoryBankElement.textContent = memoryBank.length
+            memoryBankElement.innerHTML = memoryBank.length
         }
 
         function memoryButtonUpdate() {
@@ -134,7 +134,6 @@
         function nextMemoryBtn() {
             if (currentMemoryValue >= -1 && currentMemoryValue < memoryBank.length -1)
             currentMemoryValue++
-            let memoryValue = memoryBank[currentMemoryValue]
             document.getElementById("calculation").value = memoryValue
                 updateMemoryDisplay()
                 memoryButtonUpdate()

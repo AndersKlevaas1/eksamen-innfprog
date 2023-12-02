@@ -24,3 +24,39 @@ Previous knappen
 
 ------------------------------------------------------------------------------------------------------------------------------------------------
 
+Hente ut tidligere svar med Previous
+
+1. Når jeg trykker ADD knappen, skal verdien lagres seg i memoryBank, så oppdaterer currentMemoryValue til den siste lagrede verdien.
+2. Når jeg trykker på previous, vil verdien til previous memory øke med en, så jeg må lage en funksjon som synker dette antallet med 1 for hver gang knappen trykkes.
+3. Hvis previous sin verdi går til 0, vil knappen bli deaktivert, og ikke fungere.
+4. currentMemoryValue må være begrenset til å være innenfor området av memoryBank-indeksen. slik at den ikke går utenfor.
+5. Når currentMemoryValue er mindre enn null, har jeg nådd starten av memoryBank, (som starter på -1)
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Next knappen
+
+1. Next-knappen skal skal currentMemoryValue øke med en, for å kunne gå til neste mattestykke i ararayen
+2. Hvis da currentMemoryValue er mindre enn memorybanken, så kan jeg øke med 1, siden den starter på -1
+3. hvis currentMemoryValue når memoryBank er -1, er det ingen flere tall å vise, da kan den stoppe
+4. Jeg kommer til å måtte oppdatere currentMemoryValue
+5. Lage 2 funksjoner, som håndterer array-bytte av next og previous
+6. Jeg må oppdatere koden som vises på skjermen, så jeg må hente og sende informasjon til / fra calculation
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Canvas
+
+Tegne firkant // trykke knapp
+
+1. knappene må kunne bli trykket på for å kunne gjøre en kommando, da vil jeg trenge en eventlistener for å kunne oppdage tastetrykk
+2. Når knappen som skal trykkes er trykket på, så skal funksjonen plassere en firkant eller sirkel tilfeldig på skjermen
+3. Lage en funksjon som lager figurene som skal plasseres på canvaset, når de skal plasseres tilfelding trenger jeg math.Random for å kunne gjøre plasseringen tilfeldig 
+4. Jeg vil også trenge å velge canvaset sin max-width og max-height for å holde figuerene innenfor disse parameterne
+5. Når jeg skal lage en ny figur, så må jeg kjøre renderDrawings som tegner firkant eller sirkel (basert på hvilken knapp som trykkes)
+6. Når figurne er tegnet, så vil jeg oppdatere counteren for figurene, da trenger jeg en funskjon som kan sjekke om det er Sirkel eller Firkant som er trykket på, og oppdatere dette
+7. Når jeg skal tegne ut figuren, må jeg oppdatere counter for figurer og lange en funksjon som bruker en for-loop som sjekker for firkant eller sirkel
+8. Jeg må også kunne lage en sirkel, da en sirkel ikke har kanter, må jeg bruke en funksjon som regner ut en sirkel
+9.
+10.
+11.

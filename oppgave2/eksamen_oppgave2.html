@@ -32,35 +32,93 @@
         const ctx = canvas.getContext("2d")
 
         //TODO: Storage of multiple element objects (Grade C and above)
-        const elements = [
+        const figures = [
             {type: "square", x: 23, y: 220},
             {type: "circle", x: 381, y: 444}
         ]
 
         //TODO: Function to add an element of parameter type 'square' or 'circle':
-        
+        function insertSquare() {
+        const Square = {type: "square", x: Math.random() * (canvas.width), y: Math.random() * (canvas.height)}
+        figures.push(Square)
+        updateFigures()
+    }
 
-        //TODO: Function to remove random element:
+        function insertCircle() {
+        const Circle = {type: "circle", x: Math.random() * canvas.width, y: Math.random() * canvas.height}
+        figures.push(Circle)
+        updateFigures()
+    }
         
+        //TODO: Function to remove random element:
+        function removeRandomFigure() {
+        if (figures.length > 0) {
+        const index = Math.floor(Math.random() * figures.length)
+        figures.splice(index, 1)
+        updateFigures()
+        }
+    }
 
         //TODO: EventListeners to track user input:
+        document.getElementById('sbutton').addEventListener('click', insertSquare)
+        document.getElementById('cbutton').addEventListener('click', insertCircle)
+        document.getElementById('rbutton').addEventListener('click', removeRandomFigure)
 
+        document.addEventListener('keydown', function(event) {
+        if (event.key === 's') {
+            insertSquare()
+        } else if (event.key === 'c') {
+            insertCircle()
+        } else if (event.key === 'r') {
+            removeRandomFigure()
+        }
+    })
 
         //TODO: Count the element types and total and print to interface
+        function updateFigures() {
+            const squareCount = figures.filter(function(figures) {
+            return figures.type === 'square'
+        }).length
 
+        const circleCount = figures.filter(function(figures) {
+            return figures.type === 'circle'
+        }).length
+
+        document.getElementById('squareCount').innerHTML = squareCount
+        document.getElementById('circleCount').innerHTML = circleCount
+        document.getElementById('totalCount').innerHTML= figures.length
+        }
         
         //Function to draw on canvas:
         function renderDrawings() {
-            //Clear the rectangle
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
+        //Clear the rectangle
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-            //TODO: Draw the elements on canvas:
+        //TODO: Draw the elements on canvas:
+        for (let i = 0; i < figures.length; i++) {
+        let drawing = figures[i]
+        ctx.beginPath()
 
+        if (drawing.type === 'square') {
+        ctx.fillStyle = 'blue'
+            } else {
+        ctx.fillStyle = 'red'
+        }
 
-            //Testprint:
-            console.log("Currently drawing frames...")
-            //Use requestAnimationFrame to re-run renderDrawings-function
-            requestAnimationFrame(renderDrawings)
+        if (drawing.type === 'square') {
+        ctx.fillRect(drawing.x, drawing.y, 50, 50)
+            } else if (drawing.type === 'circle') {
+        if (drawing.type === 'circle') {
+            ctx.arc(drawing.x, drawing.y, 25, 0, Math.PI * 2)
+        }
+            ctx.fill()
+        }
+    }
+
+        //Testprint:
+        console.log("Currently drawing frames...")
+        //Use requestAnimationFrame to re-run renderDrawings-function
+        requestAnimationFrame(renderDrawings)
         }
         //Start drawing
         renderDrawings()
