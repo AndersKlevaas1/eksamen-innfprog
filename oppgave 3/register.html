@@ -68,9 +68,7 @@
     </main>
     <script>
         //Array of staff objects
-        const staff = [
-            {firstname: "Bill", lastname: "Gates", position: "Director", department: "Administration", email: "bill@gates.net"},
-        ]
+        const staff = []
 
         //Array of available positions
         const positions = ["Director", "Team leader", "Producer", "Engineer", "Designer"]
@@ -78,10 +76,127 @@
         //Array of available departments
         const departments = ["Administration", "Human Resources", "Production", "Finances"]
 
-        function addStaff() {
-            let inputStaff = staff[document.getElementById(firstname), document.getElementById(lastname), document.getElementById(position), document.getElementById(department)]
-            staff.push(inputStaff)
+        // deklarere en funksjon for å fylle positions og department valgene som blir valgt.
+        function loadChoice(elementId, options) {
+        const select = document.getElementById(elementId)
+
+        const optionsHTMLArray = options.map(option => `<option value="${option}">${option}</option>`)
+
+        select.innerHTML = optionsHTMLArray
         }
+
+        // Deklarere en funksjon som viser de ansatte
+
+        function displayStaff() {
+        const staffListContainer = document.getElementById("staffList")
+        staffListContainer.innerHTML = ""
+
+        staff.forEach(employee => {
+        staffListContainer.innerHTML += 
+                `<article class="membercard">
+                <h3>${employee.lastname}, ${employee.firstname}</h3>
+                <p class="metainfo">
+                    <img src="posicon.png" alt="position: "> ${employee.position}
+                    <img src="depicon.png" alt="department: "> ${employee.department}
+                </p>
+                <p><a href="mailto:${employee.email}"><img src="mailicon.png"> Send mail to ${employee.firstname}</a></p>
+            </article>`
+            })
+        }
+
+        //Deklarere en funksjon for å legge til en ny ansatt
+
+        function addStaff() {
+            const firstname = document.getElementById("firstname").value
+            const lastname = document.getElementById("lastname").value
+            const position = document.getElementById("position").value
+            const department = document.getElementById("department").value
+            const email = document.getElementById("email").value
+
+            // staff.push for å legge den anstatte inn i arrayen
+            staff.push({ firstname, lastname, position, department, email })
+
+            // oppdatere displayStaff funksjonen
+            displayStaff()
+            }
+
+            //Lage en funksjon for å legge til department-valget som blir skrevet inn
+            // og pushe denne inn i arrayen
+            function addDepartment() {
+            const newDepartment = document.getElementById("newDepartment").value
+            departments.push(newDepartment)
+            loadChoice("department", departments)
+            }
+
+            // Deklarere en funksjon for å lage nye posisjoner
+            // og pushe denne inn i arrayen
+            function addPosition() {
+                const newPosition = document.getElementById("newPosition").value
+                positions.push(newPosition)
+                loadChoice("position", positions)
+            }
+
+            // legge til en eventlistener for knappen som skal legge til de ansatte
+            document.getElementById("saveStaff").addEventListener("click", addStaff)
+
+            // legge til en eventlistener for add department-knappen
+            document.getElementById("saveDepartment").addEventListener("click", addDepartment)
+
+            // legge til en eventlistener for new positions-knappen
+            document.getElementById("savePosition").addEventListener("click", addPosition)
+
+
+
+            //Lage filter for fornavn og etternavn
+           // Funksjon for å sortere ansatte etter etternavn
+            function sortStaff() {
+            staff.sort((a, b) => a.lastname.localeCompare(b.lastname))
+            }
+
+            // Funksjon for å lage filtermeny med valgt stilling
+            function filterMenu() {
+            const positionFilter = document.getElementById("positionFilter")
+            positionFilter.innerHTML = positions.map(position => `<li><button class="positionFilterButton">${position}</button></li>`).join("")
+
+            // legge til eventlisteners for filterknappene
+            positionFilter.querySelectorAll(".positionFilterButton").forEach(button => {
+            button.addEventListener("click", () => filterStaff(button.textContent.trim()))
+            })
+        }
+
+            // Funksjon for å filtrere ansatte
+            function filterStaff(position) {
+            const filteredStaff = position === "All positions" ? staff : staff.filter(employee => employee.position === position)
+            showChosenFilter(filteredStaff)
+        }
+
+            // Funksjon for å vise filtrerte ansatte
+            function showChosenFilter(filtered) {
+            const staffListContainer = document.getElementById("staffList")
+            staffListContainer.innerHTML = ""
+
+            filtered.forEach(employee => {
+            staffListContainer.innerHTML += `
+            <article class="membercard">
+                <h3>${employee.lastname}, ${employee.firstname}</h3>
+                <p class="metainfo">
+                    <img src="posicon.png" alt="position: "> ${employee.position}
+                    <img src="depicon.png" alt="department: "> ${employee.department}
+                </p>
+                <p><a href="mailto:${employee.email}"><img src="mailicon.png"> Send mail to ${employee.firstname}</a></p>
+            </article>`
+            })
+        }
+
+             // Fyll Position og Department når siden lastes
+            loadChoice("position", positions)
+            loadChoice("department", departments)
+
+            // Vise ansatte når siden lastes
+            displayStaff()
+
+            sortStaff()
+            filterMenu()
     </script>
 </body>
 </html>

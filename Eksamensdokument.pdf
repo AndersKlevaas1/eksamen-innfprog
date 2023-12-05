@@ -5,10 +5,12 @@ Disable-element: https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElem
 length-element: https://www.w3schools.com/jsref/jsref_length_string.asp length elementet
 Math.random https://www.w3schools.com/js/js_random.asp
 Canvas Prog fra timen (superman)
-https://www.w3schools.com/jsref/jsref_splice.asp splice
-https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning
-https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning/tegne-basisformer
-https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning/tegne-basisformer#he6a071c1dc53
-https://chat.openai.com/share/036f0f04-9e5e-40d5-a5b9-03cb739982b9 Sirkel i arc
-https://chat.openai.com/share/6b9ef3cd-5aab-4465-9e52-2c24f57e9203 Filter-funskjon
+splice https://www.w3schools.com/jsref/jsref_splice.asp 
+Tegne i canvas https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning
+Tegne i canvas https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning/tegne-basisformer
+Tegne i canvas https://lms.webtricks.blog/kurs/innforing-i-programmering/canvas-tegning/tegne-basisformer#he6a071c1dc53
+Sirkel i arc https://chat.openai.com/share/036f0f04-9e5e-40d5-a5b9-03cb739982b9
+Filter-funskjon https://chat.openai.com/share/8f370981-a7b1-40ce-bdbe-1a8a4f36b1a1
+template-literals https://livebook.manning.com/book/get-programming-with-javascript-next/chapter-7/16
+Filter https://stackoverflow.com/questions/66089303/how-to-filter-full-name-string-properly-in-javascript
 

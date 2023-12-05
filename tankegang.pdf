@@ -1,4 +1,5 @@
 # Tankegang
+(Her har jeg prøvd å skrive ned det jeg kan fra tankegangen min)
 
 memoryBank
 
@@ -57,6 +58,22 @@ Tegne firkant // trykke knapp
 6. Når figurne er tegnet, så vil jeg oppdatere counteren for figurene, da trenger jeg en funskjon som kan sjekke om det er Sirkel eller Firkant som er trykket på, og oppdatere dette
 7. Når jeg skal tegne ut figuren, må jeg oppdatere counter for figurer og lange en funksjon som bruker en for-loop som sjekker for firkant eller sirkel
 8. Jeg må også kunne lage en sirkel, da en sirkel ikke har kanter, må jeg bruke en funksjon som regner ut en sirkel
-9.
-10.
-11.
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Register-skjema
+
+1. Departmens og positions er allerede deklarert, så de trenger jeg ikke å deklarere.
+2. Jeg kommer til å trenge en funksjon som skal fylle positions og Departmens valgene som blir valgt
+3. Så vil jeg trenge en funksjon som skal vise de ansatte på skjermen, slik at de havner i listen de skal ligge i
+4. Jeg kommer til å trenge en forEach-loop for å gå gjennom hvert enkelt element, og lage et nytt element med denne informasjonen om den ansatte.
+5. Etter dette vil jeg trenge en funksjon som jeg kan bruke til å lage/legge til fremtidig nye ansatte inn i den samme listen
+6. Jeg kommer til å trenge eventlistener for å detecte at knappene blir trykket 
+7. For å lage funksjonene som lager nye roller trenger jeg en funksjon som som pusher det jeg skriver inn i arrayen til listelementene
+8. Etter jeg har fått pushet må jeg oppdatere listene slik at det jeg skriver vises i listelementet.
+
+Fornavn og etternavn
+
+1. Først må jeg lage et filter som filtrer fornavn og etternavn, da må jeg markere noe som a, og noe som b, for å gi verdier jeg kan sortere
+2. Så må jeg lage en filtermeny som sorterer de ansatte basert på stillinger de har.
+3. Etter jeg har lagd filterene må jeg legge inn eventlistener slik at filterknappene fungerer
