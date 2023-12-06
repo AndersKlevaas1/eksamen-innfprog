@@ -39,13 +39,13 @@
 
         //TODO: Function to add an element of parameter type 'square' or 'circle':
         function insertSquare() {
-        const Square = {type: "square", x: Math.random() * (canvas.width), y: Math.random() * (canvas.height)}
+        const Square = {type: "square", x: Math.random() * (canvas.width - 8), y: Math.random() * (canvas.height - 8)}
         figures.push(Square)
         updateFigures()
     }
 
         function insertCircle() {
-        const Circle = {type: "circle", x: Math.random() * canvas.width, y: Math.random() * canvas.height}
+        const Circle = {type: "circle", x: Math.random() * (canvas.width - 6.5 * 2) + 6.5, y: Math.random() * (canvas.height - 6.5 * 2) + 6.5}
         figures.push(Circle)
         updateFigures()
     }
@@ -106,11 +106,11 @@
         }
 
         if (drawing.type === 'square') {
-        ctx.fillRect(drawing.x, drawing.y, 50, 50)
+        ctx.fillRect(drawing.x, drawing.y, 8, 8)
             } else if (drawing.type === 'circle') {
 
         if (drawing.type === 'circle') {
-            ctx.arc(drawing.x, drawing.y, 25, 0, Math.PI * 2)
+            ctx.arc(drawing.x, drawing.y, 6.5, 0, Math.PI * 2)
         }
             ctx.fill()
         }

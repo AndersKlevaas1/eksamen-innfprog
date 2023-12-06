@@ -79,10 +79,12 @@
         // deklarere en funksjon for å fylle positions og department valgene som blir valgt.
         function loadChoice(elementId, options) {
         const select = document.getElementById(elementId)
+        let optionChoice = ""
+        for (let i = 0; i < options.length; i++) {
+        optionChoice += `<option value="${options[i]}">${options[i]}</option>`
+        }
 
-        const optionsHTMLArray = options.map(option => `<option value="${option}">${option}</option>`)
-
-        select.innerHTML = optionsHTMLArray
+        select.innerHTML = optionChoice
         }
 
         // Deklarere en funksjon som viser de ansatte
@@ -159,12 +161,15 @@
             positionFilter.innerHTML = positions.map(position => `<li><button class="positionFilterButton">${position}</button></li>`).join("")
 
             // legge til eventlisteners for filterknappene
-            positionFilter.querySelectorAll(".positionFilterButton").forEach(button => {
-            button.addEventListener("click", () => filterStaff(button.textContent.trim()))
+            positionFilter.addEventListener("click", (event) => {
+            const button = event.target.closest('.positionFilterButton')
+                if (button) {
+                    filterStaff(button.innerHTML)
+                }
             })
         }
 
-            // Funksjon for å filtrere ansatte
+            // Funksjon for å filtrere ansatte og sjekke hvilken posisjon som blir valgt
             function filterStaff(position) {
             const filteredStaff = position === "All positions" ? staff : staff.filter(employee => employee.position === position)
             showChosenFilter(filteredStaff)
@@ -173,19 +178,15 @@
             // Funksjon for å vise filtrerte ansatte
             function showChosenFilter(filtered) {
             const staffListContainer = document.getElementById("staffList")
-            staffListContainer.innerHTML = ""
-
-            filtered.forEach(employee => {
-            staffListContainer.innerHTML += `
-            <article class="membercard">
-                <h3>${employee.lastname}, ${employee.firstname}</h3>
-                <p class="metainfo">
-                    <img src="posicon.png" alt="position: "> ${employee.position}
-                    <img src="depicon.png" alt="department: "> ${employee.department}
-                </p>
+            staffListContainer.innerHTML = filtered.map(employee => 
+            `<article class="membercard">
+            <h3>${employee.lastname}, ${employee.firstname}</h3>
+            <p class="metainfo">
+                <img src="posicon.png" alt="position: "> ${employee.position}
+                <img src="depicon.png" alt="department: "> ${employee.department}
+            </p>
                 <p><a href="mailto:${employee.email}"><img src="mailicon.png"> Send mail to ${employee.firstname}</a></p>
-            </article>`
-            })
+            </article>`).join('')
         }
 
              // Fyll Position og Department når siden lastes
@@ -194,7 +195,6 @@
 
             // Vise ansatte når siden lastes
             displayStaff()
-
             sortStaff()
             filterMenu()
     </script>
