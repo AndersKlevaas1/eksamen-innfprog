@@ -90,11 +90,12 @@
         // Deklarere en funksjon som viser de ansatte
 
         function displayStaff() {
-        const staffListContainer = document.getElementById("staffList")
-        staffListContainer.innerHTML = ""
+        const staffList = document.getElementById("staffList")
+        staffList.innerHTML = ""
 
         staff.forEach(employee => {
-        staffListContainer.innerHTML += 
+        staffList.innerHTML += 
+        //Bruke template literals til å hente ut bildene fra mappen inn i kontaktkortene
                 `<article class="membercard">
                 <h3>${employee.lastname}, ${employee.firstname}</h3>
                 <p class="metainfo">
@@ -172,13 +173,14 @@
             // Funksjon for å filtrere ansatte og sjekke hvilken posisjon som blir valgt
             function filterStaff(position) {
             const filteredStaff = position === "All positions" ? staff : staff.filter(employee => employee.position === position)
-            showChosenFilter(filteredStaff)
+            showFilter(filteredStaff)
         }
 
             // Funksjon for å vise filtrerte ansatte
-            function showChosenFilter(filtered) {
+            function showFilter(filtered) {
             const staffListContainer = document.getElementById("staffList")
             staffListContainer.innerHTML = filtered.map(employee => 
+            //Bruke template literals til å hente ut bildene fra mappen inn i kontaktkortene
             `<article class="membercard">
             <h3>${employee.lastname}, ${employee.firstname}</h3>
             <p class="metainfo">

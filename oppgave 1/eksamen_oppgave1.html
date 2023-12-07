@@ -85,6 +85,7 @@
         let memoryBank = []
         let currentMemoryValue = -1 // Må settes til -1 fordi en verdi ikke er valgt enda
 
+        // Lage en funksjon som henter verdien fra calculation og legger verdien i memoryBank arrayen
         function addMemory() {
             let memoryValue = document.getElementById("calculation").value
             memoryBank.push(memoryValue)
@@ -94,13 +95,14 @@
             memoryButtonUpdate() 
         }
 
+        //  Lage en funksjon som oppdaterer antallet i memoryen
         function updateMemoryButton() {
             let memoryBankElement = document.getElementById("memory-bank")
             memoryBankElement.innerHTML = memoryBank.length
             //https://www.w3schools.com/jsref/jsref_length_string.asp length elementet
         }
 
-        // Previous-memory knapp
+        // Lage en funksjon som reduserer arrayen med 1, slik at vi kan gå tilbake
         
         function previousMemory() {
             if (currentMemoryValue > 0 && currentMemoryValue < memoryBank.length) {
@@ -118,11 +120,13 @@
             }
         }
 
+        // Lage en funksjon som oppdaterer memoryBanken
         function updateMemoryDisplay() {
             let memoryBankElement = document.getElementById("memory-bank")
             memoryBankElement.innerHTML = memoryBank.length
         }
 
+        // Lage en funksjon som lar oss gå tilbake til -1
         function memoryButtonUpdate() {
             let buttonBack = document.getElementById("memory-browseback")
             buttonBack.disabled = currentMemoryValue < 0 
@@ -131,6 +135,7 @@
             // https://developer.mozilla.org/en-US/docs/Web/API/HTMLSelectElement/disabled disabled-elementet
         }       
 
+        // Lage en funksjon som gjør framover i arrayen
         function nextMemoryBtn() {
             if (currentMemoryValue >= -1 && currentMemoryValue < memoryBank.length -1)
             currentMemoryValue++
