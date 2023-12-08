@@ -1,5 +1,6 @@
 # Tankegang
 (Her har jeg prøvd å skrive ned det jeg kan fra tankegangen min)
+Jeg har gått for karakter B
 
 memoryBank
 
@@ -63,7 +64,7 @@ Tegne firkant // trykke knapp
 
 Register-skjema
 
-1. Departmens og positions er allerede deklarert, så de trenger jeg ikke å deklarere.
+1. Departments og positions er allerede deklarert, så de trenger jeg ikke å deklarere.
 2. Jeg kommer til å trenge en funksjon som skal fylle positions og Departmens valgene som blir valgt
 3. Så vil jeg trenge en funksjon som skal vise de ansatte på skjermen, slik at de havner i listen de skal ligge i
 4. Jeg kommer til å trenge en forEach-loop for å gå gjennom hvert enkelt element, og lage et nytt element med denne informasjonen om den ansatte.
